@@ -1,0 +1,40 @@
+clear;clc
+
+I = imread('lena.jpg');
+figure;
+imshow(I,[]);
+
+%  I = rgb2gray(I);
+  I = im2double(I);
+ 
+s = size(I);
+I_rotation =zeros(s);
+
+figure;
+for i = 1:36
+    M = imrotate(I,-i*10,'bilinear','crop');
+    I_rotation = I_rotation + M;
+    subplot(6,6,i);
+    imshow(M,[]);
+end
+
+I_rotation_mean = I_rotation/36;
+% I_rotation_mean = rgb2gray(I_rotation_mean);
+figure;
+imshow(I_rotation_mean,[])
+
+
+% clear;clc
+% 
+% I = imread('lena.jpg');
+% figure;
+% imshow(I,[]);
+% 
+% %  I = rgb2gray(I);
+% %  I = double(I);
+% 
+% figure;
+% M = imrotate(I,-1*10,'bilinear','crop');
+% imshow(M,[]);
+
+
